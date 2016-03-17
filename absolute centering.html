@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>css绝对居中的方法</title>
+		<style>
+			.wrap{
+				position: relative;
+				width: 600px;
+				height: 600px;
+				border: 1px solid #333;
+			}
+			.outer4{
+				display: table-cell;
+				vertical-align: middle;
+			}
+			.table5{
+				width: 600px;
+				height: 600px;
+				display: table;
+			}
+			.outer5{
+				width: 100%;
+				height: 100%;
+				border: 1px solid #333;
+				display: table-cell;
+				vertical-align: middle;
+			}
+			.outer6{
+				display: -webkit-box;
+				-webkit-box-pack: center;
+				-webkit-box-align: center;
+			}
+			.outer7{
+				text-align: center;
+			}
+			.outer7:before{
+				content: "";
+				display: inline-block;
+				height: 100%;
+				vertical-align: middle;
+			}
+			.centered{
+				width: 200px;
+				height: 200px;
+			}
+			.inner1{
+				background-color: #0688C4;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				margin-left: -100px;
+				margin-top: -100px;
+			}
+			.inner2{
+				background-color: #47BE64;
+				position: absolute;
+				margin: auto;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+			}
+			.inner3{
+				background-color: #FCF03C;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				-webkit-transform: translate(-50%,-50%);
+				-ms-transform: translate(-50%,-50%);
+				transform: translate(-50%,-50%);
+			}
+			.inner4{
+				background-color: #F56E3F;
+				margin: 0 auto;
+			}
+			.inner5{
+				background-color: #F33036;
+				margin: 0 auto;
+			}
+			.inner6{
+				background-color: #7A48A1;
+			}
+			.inner7{
+				background-color: #333333;
+				display: inline-block;
+				vertical-align: middle;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>css绝对居中方法总结</h1>
+		<h2>浮动居中1</h2>
+		缺陷：需要已知宽高
+		<div class="wrap">
+			<div class="centered inner1"></div>
+		</div>
+		<h2>浮动居中2</h2>
+		缺陷：ie8以下不支持
+		<div class="wrap">
+			<div class="centered inner2"></div>
+		</div>
+		<h2>浮动居中3</h2>
+		缺陷：ie9以下不支持，要求css3支持
+		<div class="wrap">
+			<div class="centered inner3"></div>
+		</div>
+		<h2>表格居中1</h2>
+		缺陷：ie8以下不支持,父元素无法用百分比获得宽高，父元素不可脱离文档流，不符合语义化
+		<div class="wrap outer4">
+			<div class="centered inner4"></div>
+		</div>
+		<h2>表格居中2</h2>
+		缺陷：ie8以下不支持，父元素不可脱离文档流，需要在父元素外再加一层table
+		<div class="table5">
+			<div class="outer5">
+				<div class="centered inner5"></div>
+			</div>
+		</div>
+		<h2>弹性布局居中</h2>
+		缺陷：不支持ie，一般仅用于移动端
+		<div class="wrap outer6">
+			<div class="centered inner6"></div>
+		</div>
+		<h2>伪元素居中</h2>
+		缺陷：不支持ie，一般仅用于移动端
+		<div class="wrap outer7">
+			<div class="centered inner7"></div>
+		</div>
+	</body>
+</html>
